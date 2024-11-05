@@ -48,13 +48,12 @@ public class OpenWeatherAPITest {
             String cityName = jsonObject.getString("name");
             double temp = jsonObject.getJSONObject("main").getDouble("temp");
 
-            if (CITY_TEL_AVIV.equalsIgnoreCase(cityName)) // *Section 5 of the home task* - if London/NY will stay Fahrenheit
+            if (CITY_TEL_AVIV.equalsIgnoreCase(cityName)) { // *Section 5 of the home task* - if London/NY will stay Fahrenheit
                 temp = fahrenheitToCelsius(temp);
-
-            if (CITY_TEL_AVIV.equalsIgnoreCase(cityName)) // *Section 6 of the home task*
                 Assert.assertEquals(country, COUNTRY_IL,
                         "Error: Country is not " + COUNTRY_IL +
                         " as expected, even though we are checking the temperature in " + CITY_TEL_AVIV + "!");
+            }
         } catch (Exception e) {
             logger.log(Level.SEVERE, "An error has occurred: ", e);
             Assert.fail("The test has failed: " + e.getMessage());
